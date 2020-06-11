@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<block wx:for="{{imgs}}" wx:for-index="index" wx:key='index'>
+  <swiper-item class="swiper-items">
+    <image class="swiper-image" src="{{item}}"></image>
+  </swiper-item>
+  <text class='time'>{{time}}s</text>
+</block>

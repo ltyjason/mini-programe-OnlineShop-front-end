@@ -1,0 +1,17 @@
+/* pages/like/like.wxss */
+
+/* .img {
+  width: 180px;
+  height: 180px;
+} */
+
+.flex-direction {
+  display: inline-flex;
+  margin-left: 20px;
+}
+
+.price {
+  font-size: 20px;
+  color: #ff5000;
+}
+

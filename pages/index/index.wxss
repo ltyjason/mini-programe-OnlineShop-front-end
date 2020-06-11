@@ -1,0 +1,28 @@
+/**index.wxss**/
+swiper {
+  /*这个是绝对布局*/
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+  
+.swiper-image { 
+  height: 100%;
+  width: 100%;
+  /*透明度*/
+  opacity: 0.9;
+}
+
+
+.time {
+    height: 40rpx;
+    color: #fff;
+    font-size: 24rpx;
+    position: absolute;
+    bottom: 5px;
+    border-radius: 5px;
+    line-height: 40rpx;
+    right: 60rpx;
+    padding:0 20rpx;
+    border:1rpx solid #fff
+}

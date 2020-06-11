@@ -1,0 +1,25 @@
+<!--pages/address/addressList.wxml-->
+<scroll-view class="scroll" scroll-y="true">
+  <view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{addressList}}" wx:key="" wx:for-index="index" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" bindtap="select"
+      data-id="{{index}}" data-address='{{item.address}}{{item.door_card}}' data-consignee='{{item.consignee}}' data-mobile='{{item.mobile}}' data-time='{{item.transportDay}}'>
+      <view class="content">
+        <view class="text-black">{{item.consignee}}
+          <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;</text> {{item.mobile}}
+        </view>
+        <view class="text-black">{{item.address}}{{item.door_card}}</view>
+        <view class="text-black">{{item.transportDay}}</view>
+      </view>
+      <view class="move">
+        <view class="bg-gray" bindtap="modAddress" data-id="{{index}}" data-index="{{item}}">修改</view>
+        <view class="bg-red" bindtap="delAddress" data-id="{{index}}">删除</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+
+<view class="add-address" bindtap="addAddress">
+  <button class="btn">
+    <image class="add-img" src="../../images/add.png"></image>新增地址</button>
+</view>

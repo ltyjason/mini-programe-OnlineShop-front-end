@@ -1,0 +1,32 @@
+<!-- pages/search/search.wxml -->
+<view class="cu-bar search bg-white">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="商品名称" confirm-type="search" 
+    bindfocus="bindSearchFouce" bindinput="bindSearch" value="{{inputsearch}}" bindblur="bindSearchBlur" bindconfirm="bindSearchConfirm" wx:key='id'></input>
+    <text class="cuIcon-close" hidden="{{isclose}}" bindtap="resetinput"></text>
+  </view>
+  <view class="{{showView?'action':''}}" hidden="{{show}}">
+    <text class="cuIcon-close"></text> 
+    <text bindtap="cancelsearch" formType="reset">取消</text>
+  </view>
+</view>
+
+<!-- 历史记录 -->
+<view class="history message" hidden="{{historydatashow?false:true}}">
+  <view class="title">历史搜索</view>
+  <view class="operation">清除</view>
+  <text class="list" bindtap="gotodetail" wx:for="{{historydata}}">{{item}}</text>
+</view>
+<!--热门搜索-->
+<view class="hotsearch message">
+  <view class="title">热门搜索</view>
+  <view class="operation" bindtap="changeother">换一批</view>
+  <text class="list" wx:for="{{falg ? hotsearch1 : hotsearch2}}">{{item.message}}</text>
+</view>
+<!--搜索结果-->
+<view class="searchresult" hidden="{{searchresult?false:true}}">
+  <view class="result" wx:for="{{searchResult}}">
+    {{item.result}}
+  </view>
+</view>

@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/classify/classify",
+    "pages/cart/cart",
+    "pages/mine/mine",
+    "pages/addressList/addressList",
+    "pages/address/address",
+    "pages/classifyGoods/classifyGoods",
+    "pages/detail/detail",
+    "pages/allOrder/allOrder",
+    "pages/wxSearch/wxSearch",
+    "pages/pay/pay",
+    "pages/like/like"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f0145a",
+    "navigationBarTitleText": "lty's shop",
+    "backgroundColor": "##f3f4f5"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "小程序正在获取您的地址"
+    }
+  },
+  "tabBar": {
+    "color": "#858585",
+    "selectedColor": "#f0145a",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_select.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "images/classify.png",
+        "selectedIconPath": "images/classify_select.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart_select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine_select.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,89 @@
+<import src="../wxSearch/wxSearch.wxml" />
+
+<!-- 搜索栏 -->
+<view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="商品名称" confirm-type="search" bindtap="search"></input>
+    </view>
+    <view class="action">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" bindgetlocation='getLocation' open-type='getLocation'>
+        <view class="picker">
+          <text>{{region[1]}}</text>
+        </view>
+      </picker>
+      <text class="cuIcon-triangledownfill"></text>
+    </view>
+  </view>
+
+<!-- 轮播图 -->
+<swiper class="screen-swiper DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key='id'>
+    <image src="{{item.b_img}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+
+<!-- 分类导航 -->
+<view>
+  <view class="navs">
+    <block wx:for-items="{{menus}}" wx:key="name">
+      <view class="nav-item"  data-type="{{item.menuName}}" data-typeid="{{item.id}}">
+        <image src="{{item.n_img}}" class="nav-image" />
+        <text>{{item.menuName}}</text>
+      </view>
+    </block>
+  </view>
+ </view> 
+
+<!-- 新品特卖 -->
+<view class="separate"></view>
+<view class="cate-container"> 
+    <view class="category-title">
+      <text class="name">新品特卖</text>
+      <view class="line_flag"></view>
+      <block wx:for-items="{{brands}}" wx:key="id">
+        <navigator url="/pages/brand/brand?activityId={{item.id}}">
+        <image class="head-img" src="{{item.imgUrl}}" mode="widthFix"></image>
+        </navigator>
+        <text class="brand-name">{{item.name}}</text> 
+        <view class='pms'>
+        <image class="activity-logo" src="../../images/activity_logo.png" mode="widthFix"></image>
+        {{item.remark}}
+        </view>
+      </block> 
+    </view>     
+  </view>  
+
+<!--福利专场-->
+  <view class="welfare-container"> 
+  <view class="category-title">
+    <view class="line_name">
+    </view>
+  </view>  
+  <scroll-view scroll-y="true">
+      <view class="welfares">
+         <block wx:for-items="{{newGoods}}" wx:key="id">
+          <view class="welfares-good" catchtap="catchTapCategory" data-name="{{item.g_name}}" data-goodsid="{{item.id}}">
+            <view>
+              <image src="{{item.g_imgs}}" class="welfares-image" mode="widthFix"/> 
+            </view>
+            <view class="product-name">
+              {{item.g_name}}
+            </view>
+            <view class="product-price-wrap">
+              <p class="product-price-new">￥{{item.g_price}}</p>
+            </view>
+            
+          </view>
+        </block> 
+      </view>
+  </scroll-view>  
+</view>   
+<!--福利专场-->
+
+<!-- 加载 -->
+<view class="weui-loadmore" hidden="{{hidden}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">努力加载中</view>
+  </view>  

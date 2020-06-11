@@ -1,0 +1,33 @@
+/* pages/address/addressList.wxss */
+page{  
+  display: flex;  
+  flex-direction: column;  
+  height: 100%;  
+  background-color:#f3f4f5;
+}  
+
+.content{
+  margin-left: -100rpx;
+}
+
+.btn{
+  width: 150px;
+  height: 35px;
+}
+
+.add-address{
+  margin: 0 auto;
+  margin-top: 30px;
+  border: 1px #000 solid;
+  line-height: 35px;
+  text-align: center;
+  color: #000;
+  border-radius: 5rpx;
+      display: block;
+}
+.add-img{
+  margin-right: 15rpx;
+  width: 15px;
+  height: 15px;
+}
+

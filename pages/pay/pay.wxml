@@ -1,0 +1,72 @@
+<!--pages/pay/pay.wxml-->
+<view class='detail'>
+  <button wx:if="{{isShow}}" bindtap="chooseAD">
+    <text>请选择地址</text>
+  </button>
+  <button wx:else>
+    <view class="show-add">
+      <view class='icon'>
+        <image src="../../images/_dingwei.png" mode='widthFix' class="margin-xs radius"></image>
+      </view>
+      <view class='add-info'>
+        <text class="info-top">{{address.consignee}}<text>{{address.mobile}}</text></text>
+        <view class="info-ad">{{address.address}}</view>
+        <view class="info-time">{{address.time}}</view>
+      </view>
+      <text class="more" bindtap="choose"> > </text>
+    </view>
+  </button>
+</view>
+
+
+<view class="good bg-white">
+  <scroll-view scroll-y="true">
+    <block wx:for-items="{{cart}}" wx:key="id">
+      <view class="goods">
+        <view class="img">
+          <image mode="widthFix" class="margin-xs radius" src="{{item.imgUrl}}"></image>
+        </view>
+        <view class="flex-direction">
+          <text class="title">{{item.name}}</text>
+          <text class="price">¥ {{item.price}}</text>
+          <text class="count">x {{item.count}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="sel-detail">
+      <view class="cu-form-group">
+        <view class="title">配送方式</view>
+        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+          <view class="picker">
+            {{index?picker[index]:'请选择'}}
+          </view>
+        </picker>
+      </view>
+      <view class="cu-form-group align-start">
+        <view class="title">订单备注</view>
+        <input placeholder="选填，请先和商家协商一致"></input>
+      </view>
+    </view>
+    <view class="total">
+      <text>共{{totalCount}}件</text>
+      <text>  小计:<text>¥{{totalMoney}}</text></text>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="pay-way">
+  <view class="pay bg-white">
+    <icon type="circle" size="20" wx:if="{{!isSelect}}"></icon>
+    <icon type="success" size="20" wx:else="{{isSelect}}"></icon>
+    <text>微信支付</text>
+  </view>
+</view>
+
+<view class="pay-nav">
+  <view class="line_nav"></view>
+  <view class="pay-total">
+    <text>共{{totalCount}}件</text>
+    <text>  合计:<text>¥{{totalMoney}}</text></text>
+  </view>
+  <button>提交订单</button>
+</view>

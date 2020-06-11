@@ -1,0 +1,13 @@
+<view class="bg-white">
+  <scroll-view scroll-y="true">
+  <block wx:for-items="{{likes}}" wx:key="id">
+    <view class="flex solid-bottom padding-sm align-start" bindtap="toDetail" data-goodsid="{{item.id}}"> 
+      <image mode="widthFix" class="margin-xs radius" src="{{item.g_imgs}}"></image>
+      <view class="flex-direction">
+        <text class="margin-xs radius">{{item.g_name}}</text>
+        <text class="margin-xs radius price">¥ {{item.g_price}}</text>
+      </view>   
+    </view>
+    </block>
+  </scroll-view>
+</view>
